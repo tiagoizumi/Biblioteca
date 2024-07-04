@@ -1,4 +1,4 @@
-package trabalho;
+
 
 public class Autor {
     String[] nome;
