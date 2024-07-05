@@ -8,9 +8,4 @@ public class Obra {
         this.titulo = titulo;
         this.autores = autores;
     }
-
-    public Obra(String string, Autor autor1, Autor autor2) {
-        //TODO Auto-generated constructor stub
-    }
-
 }
