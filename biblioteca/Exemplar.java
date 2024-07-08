@@ -3,17 +3,20 @@ package biblioteca;
 public class Exemplar {
     String id;
     Obra obra;
-    boolean disponivel;
     int edicao;
+    Usuario alugadoPor;
+
     public Exemplar(String id, Obra obra, int edicao){
         this.id = id;
         this.obra = obra;
-        this.disponivel = true;
         this.edicao = edicao;
+        this.alugadoPor = null;
+
     }
-    public boolean alugar() {
-        if (disponivel) {
-            disponivel = false;
+
+    public boolean alugar(Usuario usuario) {
+        if (alugadoPor == null) {
+            alugadoPor = usuario;
             return true;
         }
         else {
@@ -21,11 +24,10 @@ public class Exemplar {
             return false;
         }
     }
-    public boolean devolver() {
-        if(disponivel == false){
-            disponivel = true;      // CRIEI iSSO DAQUI
+    public boolean devolver(Usuario usuario, Exemplar exemplar) {
+        if(alugadoPor == usuario){
+            alugadoPor = null;
             return true;
-
         }
         else {
             System.out.println(obra.titulo + " do id " + id + " já foi devolvido ou não foi alugado");
@@ -40,7 +42,7 @@ public class Exemplar {
             System.out.println(autor.nome);
         }
         System.out.println("Edição: " + edicao);
-        if (disponivel) {
+        if (alugadoPor == null) {
             System.out.println("Disponível");
         }
         else {
