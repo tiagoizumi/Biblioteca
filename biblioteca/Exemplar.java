@@ -30,7 +30,7 @@ public class Exemplar {
             return true;
         }
         else {
-            System.out.println(obra.titulo + " do id " + id + " já foi devolvido ou não foi alugado");
+            System.out.println(obra.titulo + " do id " + id + " não está alugado por " + usuario.nome);
             return false;
         }
     }

@@ -15,7 +15,7 @@ public class Emprestimo {
         this.dataDevolucao = null;
     }
 
-    public boolean devolvido() {return this.dataDevolucao == null;}
+    public boolean devolvido() {return this.dataDevolucao != null;}
 
     public Exemplar getExemplar() {return exemplar;}
 
@@ -28,7 +28,6 @@ public class Emprestimo {
         String dataEmprestimoStr = dataEmprestimo.format(formatter);
         String dataDevolucaoStr = (dataDevolucao != null) ? dataDevolucao.format(formatter) : "N/A";
         String tituloObra = exemplar.obra.titulo;
-
         System.out.format("%-20s %-20s %-15s %-15s %-10s%n", 
                           usuario.nome, tituloObra, dataEmprestimoStr, dataDevolucaoStr, this.devolvido() ? "Sim" : "Não");
     }
