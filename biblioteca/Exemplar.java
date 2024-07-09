@@ -36,7 +36,7 @@ public class Exemplar {
     }
     public void consultar() {  
         System.out.println("ID: " + id);
-        System.out.println("Título: " + obra.titulo);          // E ISSO DAQUI , não entendi a parte de HIERARQUIA
+        System.out.println("Título: " + obra.titulo);
         System.out.println("Autores: ");
         for (Autor autor : obra.autores) {
             System.out.println(autor.nome);

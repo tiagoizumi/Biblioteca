@@ -7,15 +7,18 @@ import java.time.LocalDate;
 public class Usuario {
     String nome;
     private List<Emprestimo> emprestimos;
+    private List<Exemplar> livrosAtuais;
 
     public Usuario(String nome) {
         this.nome = nome;
         this.emprestimos = new ArrayList<>();
+        this.livrosAtuais = new ArrayList<>();
     }
 
     public void alugar(Exemplar exemplar, LocalDate dataEmprestimo) {
         if (exemplar.alugar(this)) {
             emprestimos.add(new Emprestimo(this, exemplar, dataEmprestimo));
+            livrosAtuais.add(exemplar);
         }
         else {
             System.out.println(this.nome + " falhou ao tentar alugar " + exemplar.obra.titulo);
@@ -28,6 +31,7 @@ public class Usuario {
             for (Emprestimo emprestimo : emprestimos) {
                 if (emprestimo.getExemplar() == exemplar) {
                     emprestimo.marcarDevolucao(dataDevolucao);
+                    livrosAtuais.remove(exemplar);
                     return;
                 }
             }
@@ -46,5 +50,7 @@ public class Usuario {
             emprestimo.info();
         }
     }
+
+    public int getNumLivrosAlugados() {return livrosAtuais.size();}
 }
 
