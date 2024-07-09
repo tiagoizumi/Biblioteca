@@ -7,12 +7,14 @@ public class Loan {
     private Copy copy;
     private LocalDate loanDate;
     private LocalDate returnDate;
+    // private LocalDate returnDeadline
 
     public Loan(User user, Copy copy, LocalDate loanDate) {
         this.user = user;
         this.copy = copy;
         this.loanDate = loanDate;
         this.returnDate = null;
+        // this.returnDeadline = loanDate.plusDays(7);
     }
 
     public boolean returned() {return this.returnDate != null;}

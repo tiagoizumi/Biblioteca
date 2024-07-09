@@ -4,19 +4,27 @@ import java.util.List;
 
 public class User {
     private String name;
-    private List<Copy> currentCopies;
+    private List<Copy> owndedCopies;
+    private int infractions;
 
     public User(String name) {
         this.name = name;
-        this.currentCopies = new ArrayList<>();
+        this.owndedCopies = new ArrayList<>();
+        this.infractions = 0;
     }
 
-    public String getName() {return name;}
-    public void addCurrentCopy (Copy copy) {
-        this.currentCopies.add(copy);
+    public void addOwndedCopy (Copy copy) {
+        this.owndedCopies.add(copy);
     }
     public boolean removeCurrentCopy (Copy copy) {
-        return this.currentCopies.remove(copy);
+        return this.owndedCopies.remove(copy);
+    }
+    
+    public String getName() {return this.name;}
+    public int getInfractions() {return this.infractions;}
+    public int countOwndedCopies() {
+        System.err.println(this.owndedCopies.size());
+        return this.owndedCopies.size();
     }
 }
 

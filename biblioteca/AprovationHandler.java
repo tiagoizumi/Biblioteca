@@ -8,9 +8,10 @@ public abstract class AprovationHandler implements Handler {
         this.nextHandler = nexHandler;
     }
 
-    public boolean handleRequest(Copy copy) {
+    @Override
+    public boolean handleRequest(User user, Copy copy) {
         if (nextHandler != null) {
-            return nextHandler.handleRequest(copy);
+            return nextHandler.handleRequest(user, copy);
         }
         else {
             return true;

@@ -1,10 +1,10 @@
 package biblioteca;
 
-public class BookAvailabilityHandler extends AprovationHandler{
+public class LoanLimitHandler extends AprovationHandler {
     @Override
     public boolean handleRequest(User user, Copy copy) {
-        if (!copy.isAvailable()) {
-            System.out.println("Indisponível!");
+        if (user.countOwndedCopies() >= 1) {
+            System.out.println("Limite de livros excedido!");
             return false;
         }
         else if (this.nextHandler != null) {
