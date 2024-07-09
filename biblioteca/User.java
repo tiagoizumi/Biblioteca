@@ -26,5 +26,8 @@ public class User {
         System.err.println(this.owndedCopies.size());
         return this.owndedCopies.size();
     }
+    public void addInfraction() {
+        this.infractions++;
+    }
 }
 
