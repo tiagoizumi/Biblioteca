@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 
 public class Usuario {
-    String nome;
+    private String nome;
     private List<Emprestimo> emprestimos;
     private List<Exemplar> livrosAtuais;
 
@@ -21,7 +21,7 @@ public class Usuario {
             livrosAtuais.add(exemplar);
         }
         else {
-            System.out.println(this.nome + " falhou ao tentar alugar " + exemplar.obra.titulo);
+            System.out.println(this.nome + " falhou ao tentar alugar " + exemplar.getTituloDaObra());
             System.out.println();
         }
     }
@@ -37,7 +37,7 @@ public class Usuario {
             }
         }
         else {
-            System.out.println(this.nome + " falhou ao tentar devolver " + exemplar.obra.titulo);
+            System.out.println(this.nome + " falhou ao tentar devolver " + exemplar.getTituloDaObra());
             System.out.println();
         }
     }
@@ -47,10 +47,11 @@ public class Usuario {
                           "Usuário", "Título da Obra", "Data Empréstimo", "Data Devolução", "Devolvido");
         System.out.println("----------------------------------------------------------------------------------------");
         for (Emprestimo emprestimo : emprestimos) {
-            emprestimo.info();
+            emprestimo.printInfo();
         }
     }
 
     public int getNumLivrosAlugados() {return livrosAtuais.size();}
+    public String getNome() {return nome;}
 }
 

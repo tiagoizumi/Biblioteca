@@ -1,17 +1,17 @@
 package biblioteca;
 
 public class Exemplar {
-    String id;
-    Obra obra;
-    int edicao;
-    Usuario alugadoPor;
+    private String id;
+    private Obra obra;
+    private int edicao;
+    private Usuario alugadoPor;
 
     public Exemplar(String id, Obra obra, int edicao){
         this.id = id;
         this.obra = obra;
         this.edicao = edicao;
         this.alugadoPor = null;
-
+        obra.addExemplar(this);
     }
 
     public boolean alugar(Usuario usuario) {
@@ -20,7 +20,7 @@ public class Exemplar {
             return true;
         }
         else {
-            System.out.println(obra.titulo + " do id " + id + " não está disponível");
+            System.out.println(obra.getTitulo() + " do id " + id + " não está disponível");
             return false;
         }
     }
@@ -30,15 +30,15 @@ public class Exemplar {
             return true;
         }
         else {
-            System.out.println(obra.titulo + " do id " + id + " não está alugado por " + usuario.nome);
+            System.out.println(obra.getTitulo() + " do id " + id + " não está alugado por " + usuario.getNome());
             return false;
         }
     }
     public void consultar() {  
         System.out.println("ID: " + id);
-        System.out.println("Título: " + obra.titulo);
+        System.out.println("Título: " + obra.getTitulo());
         System.out.println("Autores: ");
-        for (Autor autor : obra.autores) {
+        for (Autor autor : obra.getAuotres()) {
             System.out.println(autor.nome);
         }
         System.out.println("Edição: " + edicao);
@@ -50,4 +50,11 @@ public class Exemplar {
         }
 
     }
+
+    public String getId() {return id;}
+    public Obra getObra() {return obra;}
+    public int getEdicao() {return edicao;}
+    public Usuario getAlugadoPor() {return alugadoPor;}
+
+    public String getTituloDaObra() {return obra.getTitulo();}
 }

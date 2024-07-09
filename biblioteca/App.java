@@ -22,7 +22,7 @@ public class App {
         vitor.devolver(calculo01_ex01, LocalDate.of(2024, 1, 3));
 
         tiago.alugar(geometria01_ex01, LocalDate.of(2024,7,2));
-        // tiago.devolver(geometria01_ex01, LocalDate.of(2024, 7, 3));
+        tiago.devolver(geometria01_ex01, LocalDate.of(2024, 7, 3));
 
         System.out.println(tiago.getNumLivrosAlugados());
         tiago.consultarHistorico();

@@ -23,12 +23,12 @@ public class Emprestimo {
         this.dataDevolucao = dataDevolucao;
     }
 
-    public void info() {
+    public void printInfo() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String dataEmprestimoStr = dataEmprestimo.format(formatter);
         String dataDevolucaoStr = (dataDevolucao != null) ? dataDevolucao.format(formatter) : "N/A";
-        String tituloObra = exemplar.obra.titulo;
+        String tituloObra = exemplar.getTituloDaObra();
         System.out.format("%-20s %-20s %-15s %-15s %-10s%n", 
-                          usuario.nome, tituloObra, dataEmprestimoStr, dataDevolucaoStr, this.devolvido() ? "Sim" : "Não");
+                          usuario.getNome(), tituloObra, dataEmprestimoStr, dataDevolucaoStr, this.devolvido() ? "Sim" : "Não");
     }
 }
