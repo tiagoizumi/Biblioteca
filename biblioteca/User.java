@@ -2,32 +2,25 @@ package biblioteca;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
-    private String name;
-    private List<Copy> owndedCopies;
-    private int infractions;
+public abstract class User {
+    protected String name;
+    protected int infractions;
+    protected List<Copy> ownedCopies;
 
     public User(String name) {
         this.name = name;
-        this.owndedCopies = new ArrayList<>();
         this.infractions = 0;
+        this.ownedCopies = new ArrayList<>();
     }
 
-    public void addOwndedCopy (Copy copy) {
-        this.owndedCopies.add(copy);
+    public abstract void addOwnedCopy(Copy copy);
+    public abstract boolean removeOwnedCopy(Copy copy);
+
+    public String getName() { return this.name; }
+    public int getInfractions() { return this.infractions; }
+    public void addInfraction() { 
+        this.infractions++; 
     }
-    public boolean removeCurrentCopy (Copy copy) {
-        return this.owndedCopies.remove(copy);
-    }
-    
-    public String getName() {return this.name;}
-    public int getInfractions() {return this.infractions;}
-    public int countOwndedCopies() {
-        System.err.println(this.owndedCopies.size());
-        return this.owndedCopies.size();
-    }
-    public void addInfraction() {
-        this.infractions++;
-    }
+    public int countOwnedCopies() { return this.ownedCopies.size(); }
 }
 

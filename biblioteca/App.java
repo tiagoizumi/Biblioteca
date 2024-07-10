@@ -11,7 +11,7 @@ public class App {
         Copy calculo01_ex01 = new Copy("ob01ex01", calculo1, 1);
         Copy geometria01_ex01 = new Copy("ob02ex01", geometria1, 1);
         User tiago = new User("Tiago");
-        User vitor = new User("Vitor");
+        User vitor = new User("Vitor");  // OLHA EU AQUI OH PQ TA COM ESSE ERRO? EU SOU BURRO?
 
         Library library = new Library();
         LibraryFacade libraryFacade = new LibraryFacade(library);

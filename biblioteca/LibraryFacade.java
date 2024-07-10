@@ -21,7 +21,7 @@ public class LibraryFacade {
         if (available) {
             this.library.registerLoan(user, copy, loanDate);
             copy.setBorrowedBy(user);
-            user.addOwndedCopy(copy);
+            user.addOwnedCopy(copy);
             System.out.println("Emprestado!");
             return true;
         }
