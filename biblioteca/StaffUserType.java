@@ -6,10 +6,9 @@ public class StaffUserType extends User {
         super(name);
     }
 
-    @Override
-    public void addOwnedCopy(Copy copy) {
-        // LOGICA DO FUNCIONARIO AINDA NAO SEI COMO DIFERENCIAR
-        this.ownedCopies.add(copy);
+    // os funcionários conseguem ver o histórico de qualquer usuário
+    public void consultUserHistory(User user, Library library) {
+        library.consultUser(user);
     }
 }
 

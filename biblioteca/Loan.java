@@ -19,7 +19,8 @@ public class Loan {
 
     public boolean returned() {return this.returnDate != null;}
 
-    public Copy getCopy() {return copy;}
+    public Copy getCopy() {return this.copy;}
+    public User getUser() {return this.user;}
 
     public void registerReturn(LocalDate returnDate) {
         this.returnDate = returnDate;

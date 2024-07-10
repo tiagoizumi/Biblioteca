@@ -5,7 +5,7 @@ import java.util.List;
 public class User {
     protected String name;
     protected int infractions;
-    protected List<Copy> ownedCopies;
+    protected List<Copy> ownedCopies; // passar para a classe Library
 
     public User(String name) {
         this.name = name;
@@ -18,6 +18,9 @@ public class User {
     }
     public boolean removeCurrentCopy (Copy copy) {
         return this.ownedCopies.remove(copy);
+    }
+    public void consultMyHistory(Library library) {
+        library.consultUser(this);
     }
     public String getName() { return this.name; }
     public int getInfractions() { return this.infractions; }

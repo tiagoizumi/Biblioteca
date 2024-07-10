@@ -13,4 +13,13 @@ public class Library {
     public void registerLoan(User user, Copy copy, LocalDate loanDate) {
         loanList.add(new Loan(user, copy, loanDate));
     }
+
+    public void consultUser(User user) {
+        // colocar o cabeçalho aqui --------------------------------------------
+        for (Loan loan : this.loanList) {
+            if (loan.getUser() == user) {
+                loan.printInfo();
+            }
+        }
+    }
 }
