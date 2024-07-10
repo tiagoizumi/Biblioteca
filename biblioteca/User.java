@@ -2,7 +2,7 @@ package biblioteca;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class User {
+public class User {
     protected String name;
     protected int infractions;
     protected List<Copy> ownedCopies;
@@ -13,9 +13,12 @@ public abstract class User {
         this.ownedCopies = new ArrayList<>();
     }
 
-    public abstract void addOwnedCopy(Copy copy);
-    public abstract boolean removeOwnedCopy(Copy copy);
-
+    public void addOwnedCopy (Copy copy) {
+        this.ownedCopies.add(copy);
+    }
+    public boolean removeCurrentCopy (Copy copy) {
+        return this.ownedCopies.remove(copy);
+    }
     public String getName() { return this.name; }
     public int getInfractions() { return this.infractions; }
     public void addInfraction() { 

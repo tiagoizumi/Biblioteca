@@ -11,10 +11,5 @@ public class TeacherUserType extends User {
         // Lógica dos PROFESSORES
         this.ownedCopies.add(copy);
     }
-
-    @Override
-    public boolean removeOwnedCopy(Copy copy) {
-        // Lógica dos PROFESSORES
-        return this.ownedCopies.remove(copy);
-    }
+    
 }

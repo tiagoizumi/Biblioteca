@@ -15,14 +15,10 @@ public class App {
 
         Library library = new Library();
         LibraryFacade libraryFacade = new LibraryFacade(library);
-        
-        tiago.addInfraction();
-        tiago.addInfraction();
-        tiago.addInfraction();
-        
+    
+
         libraryFacade.loan(tiago, calculo01_ex01, LocalDate.of(2024, 1, 1));
         libraryFacade.loan(tiago, geometria01_ex01, LocalDate.of(2024, 1, 2));
         libraryFacade.loan(vitor, calculo01_ex01, LocalDate.of(2024, 1, 2));
-
     }
 }

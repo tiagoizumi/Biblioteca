@@ -11,11 +11,5 @@ public class StaffUserType extends User {
         // LOGICA DO FUNCIONARIO AINDA NAO SEI COMO DIFERENCIAR
         this.ownedCopies.add(copy);
     }
-
-    @Override
-    public boolean removeOwnedCopy(Copy copy) {
-        // LOGICA DO FUNCIONARIO AINDA NAO SEI COMO DIFERENCIAR
-        return this.ownedCopies.remove(copy);
-    }
 }
 
