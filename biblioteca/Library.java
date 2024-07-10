@@ -15,7 +15,8 @@ public class Library {
     }
 
     public void consultUser(User user) {
-        // colocar o cabeçalho aqui --------------------------------------------
+        System.out.format("%-20s %-20s %-15s %-15s %-10s%n", 
+        "Nome", "Livro", "Empréstimo", "Devolução", "Devolvido");
         for (Loan loan : this.loanList) {
             if (loan.getUser() == user) {
                 loan.printInfo();
