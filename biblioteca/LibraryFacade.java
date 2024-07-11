@@ -8,11 +8,11 @@ public class LibraryFacade {
     public LibraryFacade(Library library) {
         this.library = library;
 
+        // Chain of responsability
         this.chain = new BookAvailabilityHandler();
         Handler userEligibility = new UserEligibilityHandler(); 
         Handler loanLimit = new LoanLimitHandler();
-
-        chain.setNextHandler(userEligibility);
+        this.chain.setNextHandler(userEligibility);
         userEligibility.setNextHandler(loanLimit);
     }
 
@@ -23,6 +23,16 @@ public class LibraryFacade {
             copy.setBorrowedBy(user);
             user.addOwnedCopy(copy);
             System.out.println("Emprestado!");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean returnBook(User user, Copy copy, LocalDate giveBackDate) {
+        if (user == copy.getBorrowedBy()) {
+            this.library.registerReturn(copy, giveBackDate);
+            copy.setBorrowedBy(null);
+            user.removeOwnedCopy(copy);
             return true;
         }
         return false;

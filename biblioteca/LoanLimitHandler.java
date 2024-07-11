@@ -1,7 +1,7 @@
 package biblioteca;
 
 public class LoanLimitHandler extends AprovationHandler {
-    private static final int STUDENT_LOAN_LIMIT = 1;
+    private static final int STUDENT_LOAN_LIMIT = 2;
     private static final int STAFF_LOAN_LIMIT = 5;
     private static final int TEACHER_LOAN_LIMIT = 10;
 

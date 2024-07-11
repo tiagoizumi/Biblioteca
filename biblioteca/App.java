@@ -20,6 +20,8 @@ public class App {
         libraryFacade.loan(tiago, calculo01_ex01, LocalDate.of(2024, 1, 1));
         libraryFacade.loan(tiago, geometria01_ex01, LocalDate.of(2024, 1, 2));
         libraryFacade.loan(vitor, calculo01_ex01, LocalDate.of(2024, 1, 2));
+        libraryFacade.returnBook(tiago, geometria01_ex01, LocalDate.of(2024,1,3));
         tiago.consultMyHistory(library);
+        library.consultHistory();
     }
 }

@@ -5,7 +5,8 @@ public class StaffUserType extends PunishableUserType {
         super(name);
     }
 
-    // os funcionários conseguem ver o histórico de qualquer usuário
+    // VERIFICAR SE FAZ SENTIDO
+    // Os funcionários conseguem ver o histórico de qualquer usuário
     public void consultUserHistory(User user, Library library) {
         library.consultUser(user);
     }

@@ -28,4 +28,7 @@ public class Copy {
     public void setBorrowedBy(User user) {
         this.borrowedBy = user;
     }
+    public User getBorrowedBy() {
+        return this.borrowedBy;
+    }
 }

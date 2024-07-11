@@ -4,15 +4,15 @@ import java.util.List;
 
 public abstract class User {
     protected String name;
-    protected List<Copy> ownedCopies; // passar para a classe Library
+    protected List<Copy> ownedCopies;
 
     public User(String name) {
         this.name = name;
         this.ownedCopies = new ArrayList<>();
     }
 
-    public void addOwnedCopy (Copy copy) {
-        this.ownedCopies.add(copy);
+    public boolean addOwnedCopy (Copy copy) {
+        return this.ownedCopies.add(copy);
     }
     public boolean removeOwnedCopy (Copy copy) {
         return this.ownedCopies.remove(copy);
