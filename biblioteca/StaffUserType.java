@@ -1,6 +1,5 @@
 package biblioteca;
 
-
 public class StaffUserType extends User {
     public StaffUserType(String name) {
         super(name);
