@@ -6,7 +6,7 @@ public class UserEligibilityHandler extends AprovationHandler {
 
         if (user instanceof PunishableUserType) {
             PunishableUserType punishableUser = (PunishableUserType) user;
-            if (punishableUser.getInfractionsCount() > 5){
+            if (punishableUser.getInfractionsCount() > 5){ ///////////////////////////////// CONFIGURAR PELO SINGLETON
                 System.out.println("Número de infrações excedido!");
                 return false;
             }

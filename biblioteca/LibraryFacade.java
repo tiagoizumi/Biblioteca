@@ -30,7 +30,7 @@ public class LibraryFacade {
 
     public boolean returnBook(User user, Copy copy, LocalDate giveBackDate) {
         if (user == copy.getBorrowedBy()) {
-            this.library.registerReturn(copy, giveBackDate);
+            this.library.registerReturn(user, copy, giveBackDate);
             copy.setBorrowedBy(null);
             user.removeOwnedCopy(copy);
             return true;

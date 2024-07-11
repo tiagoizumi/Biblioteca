@@ -25,6 +25,7 @@ public class Loan {
 
     public Copy getCopy() {return this.copy;}
     public User getUser() {return this.user;}
+    public LocalDate getReturnDeadline() {return returnDeadline;}
 
     public void setReturnDate(LocalDate returnDate) {
         this.returnDate = returnDate;

@@ -16,9 +16,15 @@ public class Library {
         this.pendentList.add(new Loan(user, copy, loanDate));
     }
 
-    public void registerReturn(Copy copy, LocalDate returnDate) {
+    public void registerReturn(User user, Copy copy, LocalDate returnDate) {
         for (Loan pendentLoan : this.pendentList) {
-            if (!pendentLoan.returned() && pendentLoan.getCopy() == copy) {
+            if (pendentLoan.getCopy() == copy && pendentLoan.getUser() == user) {
+
+                if (returnDate.isAfter(pendentLoan.getReturnDeadline()) && user instanceof PunishableUserType) { // Entrega atrasada
+                    PunishableUserType punishable = (PunishableUserType) user;
+                    punishable.addInfraction(); /////////////////////////////////////////////////////////////////////////////////////////// PUNIÇÃO OCORRE SOMENTE NA ENTREGA
+                }
+
                 pendentList.remove(pendentLoan);
                 pendentLoan.setReturnDate(returnDate);
                 returnedList.add(pendentLoan);

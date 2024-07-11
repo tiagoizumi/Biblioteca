@@ -10,4 +10,10 @@ public abstract class PunishableUserType extends User {
     }
     public double getInfractionsCount() { return this.infractionsCount; }
     public abstract void addInfraction();
+
+    @Override
+    public void consultMyHistory(Library library) {
+        System.out.println("Infrações: " + this.infractionsCount + "/5" ); ////////////////////////// CONFIGURAR PELO SINGLETON
+        library.consultUser(this);
+    }
 }
