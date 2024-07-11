@@ -4,7 +4,7 @@ public class BookAvailabilityHandler extends AprovationHandler{
     @Override
     public boolean handleRequest(User user, Copy copy) {
         if (!copy.isAvailable()) {
-            System.out.println("Indisponível!");
+            System.out.println("Livro indisponível!");
             return false;
         }
         else if (this.nextHandler != null) {

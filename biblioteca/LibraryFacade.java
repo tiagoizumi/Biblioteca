@@ -25,7 +25,6 @@ public class LibraryFacade {
             System.out.println("Emprestado!");
             return true;
         }
-        System.out.println("algo deu errado");
         return false;
     }
 }
