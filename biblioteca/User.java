@@ -4,7 +4,7 @@ import java.util.List;
 
 public class User {
     protected String name;
-    protected int infractions;
+    protected double infractions = 0; // para se adequar a ideia do staff receber meia punicao mudei para double
     protected List<Copy> ownedCopies; // passar para a classe Library
 
     public User(String name) {
@@ -23,9 +23,9 @@ public class User {
         library.consultUser(this);
     }
     public String getName() { return this.name; }
-    public int getInfractions() { return this.infractions; }
-    public void addInfraction() { 
-        this.infractions++; 
+    public double getInfractions() { return this.infractions; }
+    public void addInfraction(double increment) { // Mudei aqui tambem para se adequar a ideia de cada user ter uma consequencia
+        this.infractions += increment;
     }
     public int countOwnedCopies() { return this.ownedCopies.size(); }
 }
