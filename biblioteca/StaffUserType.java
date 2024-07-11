@@ -1,6 +1,6 @@
 package biblioteca;
 
-public class StaffUserType extends User {
+public class StaffUserType extends PunishableUserType {
     public StaffUserType(String name) {
         super(name);
     }
@@ -9,9 +9,10 @@ public class StaffUserType extends User {
     public void consultUserHistory(User user, Library library) {
         library.consultUser(user);
     }
+    
     @Override
     public void addInfraction() {
-        this.infractions += 0.5;
+        this.infractionsCount += 0.5;
     }
 
 }

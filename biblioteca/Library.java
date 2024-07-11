@@ -23,4 +23,12 @@ public class Library {
             }
         }
     }
+
+    public void consultHistory() {
+        System.out.format("%-20s %-20s %-15s %-15s %-10s%n", 
+        "Nome", "Livro", "Empréstimo", "Devolução", "Devolvido");
+        for (Loan loan : this.loanList){
+            loan.printInfo();
+        }
+    }
 }
