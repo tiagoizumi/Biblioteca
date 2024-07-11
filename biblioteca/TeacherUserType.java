@@ -13,8 +13,7 @@ public class TeacherUserType extends User {
     }
 
     @Override
-    public void addInfraction(double increment) {
-    // Não faz nada, professores não recebem infrações, provavelmente existe uma maneira melhor de fazer isso
-}
-    
+    public void addInfraction() {
+    // Não faz nada, professores não recebem infrações
+    }
 }

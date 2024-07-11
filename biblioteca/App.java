@@ -10,8 +10,8 @@ public class App {
         Work geometria1 = new Work("Geometria Analítica", new Author[]{autor1, autor2});
         Copy calculo01_ex01 = new Copy("ob01ex01", calculo1, 1);
         Copy geometria01_ex01 = new Copy("ob02ex01", geometria1, 1);
-        User tiago = new User("Tiago");
-        User vitor = new User("Vitor");
+        User tiago = new StudentUserType("Tiago");
+        User vitor = new StudentUserType("Vitor");
 
         Library library = new Library();
         LibraryFacade libraryFacade = new LibraryFacade(library);

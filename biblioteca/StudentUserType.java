@@ -15,6 +15,9 @@ public class StudentUserType extends User {
         this.ownedCopies.add(copy);
     }
 
-
+    @Override
+    public void addInfraction() {
+        this.infractions++;
+    }
 }
 

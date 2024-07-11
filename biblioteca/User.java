@@ -2,7 +2,7 @@ package biblioteca;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
+public abstract class User {
     protected String name;
     protected double infractions = 0; // para se adequar a ideia do staff receber meia punicao mudei para double
     protected List<Copy> ownedCopies; // passar para a classe Library
@@ -22,11 +22,10 @@ public class User {
     public void consultMyHistory(Library library) {
         library.consultUser(this);
     }
+    public abstract void addInfraction(); // Essa função será diferente para cada tipo de usuário
+
     public String getName() { return this.name; }
     public double getInfractions() { return this.infractions; }
-    public void addInfraction(double increment) { // Mudei aqui tambem para se adequar a ideia de cada user ter uma consequencia
-        this.infractions += increment;
-    }
     public int countOwnedCopies() { return this.ownedCopies.size(); }
 }
 
