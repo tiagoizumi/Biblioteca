@@ -2,7 +2,8 @@ package biblioteca;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class User {
+
+public abstract class User implements Observer {  
     protected String name;
     protected List<Copy> ownedCopies;
 
@@ -19,6 +20,10 @@ public abstract class User {
     }
     public void consultMyHistory(Library library) {
         library.consultUser(this);
+    }
+    @Override // Notificações
+    public void update(String message) {
+        System.out.println(name + ", you have a new notification: " + message);
     }
 
     public String getName() { return this.name; }
