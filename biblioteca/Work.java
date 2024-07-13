@@ -2,7 +2,7 @@ package biblioteca;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Work {
+public class Work extends Observable {
     private String title;
     private Author[] authors;
     private List<Copy> copies;
@@ -15,6 +15,8 @@ public class Work {
 
     public void addCopy(Copy copy) {
         copies.add(copy);
+        bookStatusChanged(title, title); // Aqui seria para notificar todos os observeadores que uma nova copia foi adicionada
+
     }
 
     // getters

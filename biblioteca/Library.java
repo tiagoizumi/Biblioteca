@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.time.LocalDate;
 
-public class Library {
+public class Library { // EXstend BookAvailabilityNotifier
     private List<Loan> returnedList;
     private List<Loan> pendentList;
     
