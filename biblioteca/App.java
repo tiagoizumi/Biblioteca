@@ -4,17 +4,30 @@ import java.time.LocalDate;
 public class App {
     public static void main(String[] args) {
         // Instanciações
+        ConfigurationManager configs;
         Author autor1 = new Author("Ana Almeida");
         Author autor2 = new Author("Bernardo Braga");
+        BookCategory catMatematica = new BookCategory("Matemática");
+        BookCategory catGeometria = new BookCategory("Geometria");
+        BookCategory catCalculo = new BookCategory("Cálculo");
         Work calculo1 = new Work("Cálculo 1", new Author[]{autor1, autor2});
+        Work calculo2 = new Work("Cálculo 2", new Author[]{autor1, autor2});
         Work geometria1 = new Work("Geometria Analítica", new Author[]{autor1, autor2});
         Copy calculo01_ex01 = new Copy("ob01ex01", calculo1, 1);
         Copy geometria01_ex01 = new Copy("ob02ex01", geometria1, 1);
         User tiago = new StaffUserType("Tiago");
         User vitor = new StudentUserType("Vitor");
-        ConfigurationManager configs;
 
         configs = ConfigurationManager.getInstance();
+        configs.setInfractionsLimit(4);
+        
+        BookCategory categoriaRaiz = configs.getBookCategory();
+        categoriaRaiz.addItem(catMatematica);
+        catMatematica.addItem(catGeometria);
+        catMatematica.addItem(catCalculo);
+        catGeometria.addItem(geometria1.getWorkItem());
+        catCalculo.addItem(calculo1.getWorkItem());
+        catCalculo.addItem(calculo2.getWorkItem());
 
         Library library = new Library();
         LibraryFacade libraryFacade = new LibraryFacade(library);
@@ -26,5 +39,7 @@ public class App {
 
         libraryFacade.loan(tiago, calculo01_ex01, LocalDate.of(2024, 1, 1));
         library.consultHistory();
+
+        libraryFacade.displayCategories();
     }
 }

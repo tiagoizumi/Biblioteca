@@ -9,6 +9,7 @@ public class ConfigurationManager {
     private int teacherLoanLimit;
     private double infractionsLimit;
     private double staffInfractionIncrement;
+    private BookCategory bookCategory;
 
     private ConfigurationManager() {
         this.studentLoanLimit = 2;
@@ -16,12 +17,16 @@ public class ConfigurationManager {
         this.teacherLoanLimit = 10;
         this.infractionsLimit = 5;
         this.staffInfractionIncrement = 0.5;
+        this.bookCategory = new BookCategory("Categorias");
     }
     public static ConfigurationManager getInstance() {
         if (instance == null) {
             instance = new ConfigurationManager();
         }
         return instance;
+    }
+    public void displayCategories() {
+        this.bookCategory.display(0);
     }
 
     // getters
@@ -30,6 +35,7 @@ public class ConfigurationManager {
     public int getTeacherLoanLimit() {return teacherLoanLimit;}
     public double getInfractionsLimit() {return infractionsLimit;}
     public double getStaffInfractionIncrement() {return staffInfractionIncrement;}
+    public BookCategory getBookCategory() {return bookCategory;}
 
     // setters
     public void setStudentLoanLimit(int studentLoanLimit) {this.studentLoanLimit = studentLoanLimit;}

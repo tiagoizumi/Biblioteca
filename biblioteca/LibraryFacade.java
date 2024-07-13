@@ -4,6 +4,7 @@ import java.time.LocalDate;
 public class LibraryFacade {
     private AprovationHandler chain;
     private Library library;
+    private ConfigurationManager configs;
 
     public LibraryFacade(Library library) {
         this.library = library;
@@ -45,5 +46,10 @@ public class LibraryFacade {
 
     public void removeUserToNotificationList(User user, Work work) {
         work.detach(user);
+    }
+
+    public void displayCategories() {
+        configs = ConfigurationManager.getInstance();
+        configs.displayCategories();
     }
 }
