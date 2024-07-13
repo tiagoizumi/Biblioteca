@@ -38,4 +38,12 @@ public class LibraryFacade {
         }
         return false;
     }
+
+    public void addUserToNotificationList(User user, Work work) {
+        work.attach(user);
+    }
+
+    public void removeUserToNotificationList(User user, Work work) {
+        work.detach(user);
+    }
 }
