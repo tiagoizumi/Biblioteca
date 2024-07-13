@@ -19,7 +19,7 @@ public class Observable {
         }
     }
 
-    public void bookStatusChanged(Copy copy) {   
-        notifyObservers(copy + "is now available");
+    public void bookStatusChanged(Copy copy) {
+        notifyObservers(copy.getTitle() + " is now available");
     }
 }
