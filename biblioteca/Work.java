@@ -15,7 +15,6 @@ public class Work extends Observable {
 
     public void addCopy(Copy copy) {
         copies.add(copy);
-        bookStatusChanged(title, title); // Aqui seria para notificar todos os observeadores que uma nova copia foi adicionada
 
     }
 

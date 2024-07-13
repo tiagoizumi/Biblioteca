@@ -1,7 +1,7 @@
 package biblioteca;
 import java.time.LocalDate;
 
-public class LibraryFacade {
+public class LibraryFacade extends Observable{
     private AprovationHandler chain;
     private Library library;
 
@@ -33,6 +33,8 @@ public class LibraryFacade {
             this.library.registerReturn(user, copy, giveBackDate);
             copy.setBorrowedBy(null);
             user.removeOwnedCopy(copy);
+            bookStatusChanged(copy);
+
             return true;
         }
         return false;

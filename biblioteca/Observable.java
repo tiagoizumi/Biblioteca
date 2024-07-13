@@ -19,7 +19,7 @@ public class Observable {
         }
     }
 
-    public void bookStatusChanged(String bookName, String status) {   
-        notifyObservers("Book '" + bookName + "' is now " + status);
+    public void bookStatusChanged(Copy copy) {   
+        notifyObservers(copy + "is now available");
     }
 }
