@@ -2,7 +2,7 @@ package biblioteca;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Work extends Observable {
+public class Work {
     private String title;
     private Author[] authors;
     private List<Copy> copies;

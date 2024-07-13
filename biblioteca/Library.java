@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.time.LocalDate;
 
-public class Library { // EXstend BookAvailabilityNotifier
+public class Library extends Observable { 
     private List<Loan> returnedList;
     private List<Loan> pendentList;
     
@@ -28,6 +28,7 @@ public class Library { // EXstend BookAvailabilityNotifier
                 pendentList.remove(pendentLoan);
                 pendentLoan.setReturnDate(returnDate);
                 returnedList.add(pendentLoan);
+                bookStatusChanged(copy);
                 break;
             }
         }
