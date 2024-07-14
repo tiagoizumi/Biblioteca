@@ -22,6 +22,23 @@ public class Work extends Observable {
 
     }
 
+    public void consultInfo() {
+        System.out.println("Título: " + this.title);
+        System.out.println("Autores: ");
+        for (Author autor : this.authors) {
+            System.out.println(autor.getName());
+        }
+        System.out.println("Categoria: " + this.category.getName());
+
+        int available = 0;
+        for (Copy copy : this.copies){
+            if (copy.isAvailable()) {
+                available++;
+            }
+        }
+        System.out.println("Cópias disponíveis: " + available);
+    }
+
     // getters
     public String getTitle() {return this.title;}
     public Author[] getAuothors() {return this.authors;}

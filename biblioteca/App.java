@@ -37,8 +37,10 @@ public class App {
         library.addWork(calculo1);
         library.addWork(calculo2);
 
-        facade.searchByName("cálculo 1");
-        facade.searchByCategory("matemática");
+        // facade.searchByName("cálculo 1");
+        facade.searchByAuthor("cálculo 1");
+
+        calculo1.consultInfo();
 
         // libraryFacade.loan(tiago, geometria01_ex01, LocalDate.of(2024, 1, 2));
         // geometria1.attach(vitor);
@@ -48,6 +50,6 @@ public class App {
         // libraryFacade.loan(tiago, calculo01_ex01, LocalDate.of(2024, 1, 1));
         // library.consultHistory();
 
-        facade.displayCategories();
+        // facade.displayCategories();
     }
 }

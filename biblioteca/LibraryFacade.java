@@ -81,6 +81,7 @@ public class LibraryFacade {
         for (Work work : searchResults) {
             System.out.println("Found by category: " + work.getTitle());
         }
+
         return searchResults;
     }
 }
