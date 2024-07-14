@@ -15,6 +15,10 @@ public class BookCategory extends Item{
 
     public void addItem(Item item) {
         this.items.add(item);
+        if (item instanceof WorkItem) {
+            WorkItem workItem = (WorkItem) item;
+            workItem.getWork().setCategory(this);
+        }
     }
 
     public boolean removeItem(Item item) {

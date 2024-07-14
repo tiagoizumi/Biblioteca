@@ -7,7 +7,7 @@ public class UserEligibilityHandler extends AprovationHandler {
         configs = ConfigurationManager.getInstance();
         if (user instanceof PunishableUserType) {
             PunishableUserType punishableUser = (PunishableUserType) user;
-            if (punishableUser.getInfractionsCount() > configs.getInfractionsLimit()){ ///////////////////////////////// CONFIGURAR PELO SINGLETON
+            if (punishableUser.getInfractionsCount() > configs.getInfractionsLimit()){
                 System.out.println("Número de infrações excedido!");
                 return false;
             }

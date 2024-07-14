@@ -1,8 +1,12 @@
 package biblioteca;
 
 public class Author {
-    String name;
+    private String name;
     public Author(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }

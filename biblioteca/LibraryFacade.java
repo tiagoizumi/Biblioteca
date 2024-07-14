@@ -1,5 +1,6 @@
 package biblioteca;
 import java.time.LocalDate;
+import java.util.List;
 
 public class LibraryFacade {
     private AprovationHandler chain;
@@ -51,5 +52,35 @@ public class LibraryFacade {
     public void displayCategories() {
         configs = ConfigurationManager.getInstance();
         configs.displayCategories();
+    }
+
+    public List<Work> searchByName(String name) {
+        SearchCriteria titleSearch = new TitleSearch();
+        List<Work> searchResults = library.search(titleSearch, name);
+
+        for (Work work : searchResults) {
+            System.out.println("Found: " + work.getTitle());
+        }
+        return searchResults;
+    }
+
+    public List<Work> searchByAuthor(String name) {
+        SearchCriteria authorSearch = new AuthorSearch();
+        List<Work> searchResults = library.search(authorSearch, name);
+
+        for (Work work : searchResults) {
+            System.out.println("Found: " + work.getTitle());
+        }
+        return searchResults;
+    }
+
+    public List<Work> searchByCategory(String name) {
+        SearchCriteria categorySearch = new CategorySearch();
+        List<Work> searchResults = library.search(categorySearch, name);
+
+        for (Work work : searchResults) {
+            System.out.println("Found by category: " + work.getTitle());
+        }
+        return searchResults;
     }
 }

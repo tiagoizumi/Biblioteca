@@ -21,8 +21,9 @@ public class App {
         configs = ConfigurationManager.getInstance();
         configs.setInfractionsLimit(4);
         
-        BookCategory categoriaRaiz = configs.getBookCategory();
-        categoriaRaiz.addItem(catMatematica);
+        // Hierarquia de categorias
+        BookCategory rootCategory = configs.getBookCategory();
+        rootCategory.addItem(catMatematica);
         catMatematica.addItem(catGeometria);
         catMatematica.addItem(catCalculo);
         catGeometria.addItem(geometria1.getWorkItem());
@@ -30,16 +31,23 @@ public class App {
         catCalculo.addItem(calculo2.getWorkItem());
 
         Library library = new Library();
-        LibraryFacade libraryFacade = new LibraryFacade(library);
-    
-        libraryFacade.loan(tiago, geometria01_ex01, LocalDate.of(2024, 1, 2));
-        geometria1.attach(vitor);
+        LibraryFacade facade = new LibraryFacade(library);
 
-        libraryFacade.returnBook(tiago, geometria01_ex01, LocalDate.of(2024,2,3));
+        library.addWork(geometria1);
+        library.addWork(calculo1);
+        library.addWork(calculo2);
 
-        libraryFacade.loan(tiago, calculo01_ex01, LocalDate.of(2024, 1, 1));
-        library.consultHistory();
+        facade.searchByName("cálculo 1");
+        facade.searchByCategory("matemática");
 
-        libraryFacade.displayCategories();
+        // libraryFacade.loan(tiago, geometria01_ex01, LocalDate.of(2024, 1, 2));
+        // geometria1.attach(vitor);
+
+        // libraryFacade.returnBook(tiago, geometria01_ex01, LocalDate.of(2024,2,3));
+
+        // libraryFacade.loan(tiago, calculo01_ex01, LocalDate.of(2024, 1, 1));
+        // library.consultHistory();
+
+        facade.displayCategories();
     }
 }

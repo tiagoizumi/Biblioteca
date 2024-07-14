@@ -19,4 +19,8 @@ public class WorkItem extends Item {
         return work.getTitle();
     }
 
+    public Work getWork() {
+        return work;
+    }
+
 }

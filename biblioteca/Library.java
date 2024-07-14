@@ -6,10 +6,14 @@ import java.time.LocalDate;
 public class Library{ 
     private List<Loan> returnedList;
     private List<Loan> pendentList;
+    private List<Work> works;
+    private List<ExternalCatalogAdapter> adapters;
     
     public Library() {
         this.returnedList = new ArrayList<>();
         this.pendentList = new ArrayList<>();
+        this.works = new ArrayList<>();
+        this.adapters = new ArrayList<>();
     }
 
     public void registerLoan(User user, Copy copy, LocalDate loanDate) {
@@ -22,7 +26,7 @@ public class Library{
 
                 if (returnDate.isAfter(pendentLoan.getReturnDeadline()) && user instanceof PunishableUserType) { // Entrega atrasada
                     PunishableUserType punishable = (PunishableUserType) user;
-                    punishable.addInfraction(); /////////////////////////////////////////////////////////////////////////////////////////// PUNIÇÃO OCORRE SOMENTE NA ENTREGA
+                    punishable.addInfraction();
                 }
 
                 pendentList.remove(pendentLoan);
@@ -60,5 +64,32 @@ public class Library{
             loan.printInfo();
         }
         System.out.println();
+    }
+
+
+    public void addAdapter(ExternalCatalogAdapter adapter) {
+        adapters.add(adapter);
+    }
+
+    public void fetchExternalWorks() {
+        for (ExternalCatalogAdapter adapter : adapters) {
+            works.addAll(adapter.fetchWorks());
+        }
+    }
+
+    public List<Work> search(SearchCriteria criteria, String searchTerm) {
+        return criteria.search(works, searchTerm);
+    }
+
+    public void addWork(Work work) {
+        works.add(work);
+    }
+    public void removeWors(Work work) {
+        works.remove(work);
+    }
+
+    // getters
+    public List<Work> getWorks() {
+        return works;
     }
 }
