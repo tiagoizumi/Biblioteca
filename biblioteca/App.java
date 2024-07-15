@@ -1,4 +1,5 @@
 package biblioteca;
+
 import java.time.LocalDate;
 
 public class App {
@@ -37,19 +38,24 @@ public class App {
         library.addWork(calculo1);
         library.addWork(calculo2);
 
-        // facade.searchByName("cálculo 1");
+        //facade.searchByName("cálculo 1");
         facade.searchByAuthor("cálculo 1");
 
         calculo1.consultInfo();
 
-        // libraryFacade.loan(tiago, geometria01_ex01, LocalDate.of(2024, 1, 2));
-        // geometria1.attach(vitor);
+        facade.loan(tiago, geometria01_ex01, LocalDate.of(2024, 1, 2));
+        geometria1.attach(vitor);
 
-        // libraryFacade.returnBook(tiago, geometria01_ex01, LocalDate.of(2024,2,3));
+        facade.returnBook(tiago, geometria01_ex01, LocalDate.of(2024,2,3));
 
-        // libraryFacade.loan(tiago, calculo01_ex01, LocalDate.of(2024, 1, 1));
-        // library.consultHistory();
+        
+        
 
-        // facade.displayCategories();
+        facade.loan(tiago, calculo01_ex01, LocalDate.of(2024, 1, 1));
+        library.consultHistory();
+
+        facade.displayCategories();
+        facade.searchByAuthor("Matemática");
+
     }
 }
